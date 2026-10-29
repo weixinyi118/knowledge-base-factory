@@ -1,0 +1,15 @@
+# 系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 导出产物（按需保留）
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+
+# 编辑器
+.vscode/
+.idea/

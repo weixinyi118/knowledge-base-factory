@@ -188,8 +188,12 @@ knowledge-base-factory/
 │   ├── init_kb.py        生成骨架
 │   ├── check_kb.py       13 项体检
 │   └── export_kb.py      导出与打包
+├── examples/
+│   └── demo/             20 篇成品示例库，可当参照或直接跑体检
 └── references/
     ├── content-standard.md   写作标准（正反例、开场方式、证据来源）
     ├── taxonomy.md           分类地图与「必答问题」清单
     └── production.md         批量生产流程与质量循环
 ```
+
+**用户问"长什么样"时，直接指向 `examples/demo/`**，不要用文字描述结构——那里有 20 篇真东西，比任何说明都省事。

@@ -83,6 +83,12 @@ def zh_count(text):
     return len(ZH.findall(text))
 
 
+def strip_code(text):
+    """去掉围栏代码块与行内代码——写在里面的 [[...]] 是示例，不是链接"""
+    text = re.sub(r"```.*?```", "", text, flags=re.S)
+    return re.sub(r"`[^`\n]*`", "", text)
+
+
 def table_count(body):
     """连续以 | 开头的行算一个表格"""
     n, prev = 0, False
@@ -225,8 +231,8 @@ def check(root, do_fix=False, quiet=False):
                 idx = body.find(b, idx + 1)
 
         # 双链
-        for m in LINK.findall(body):
-            tgt = m.split("|")[0].split("#")[0].strip()
+        for m in LINK.findall(strip_code(body)):
+            tgt = m.split("|")[0].split("#")[0].strip().rstrip("\\")
             if tgt and tgt not in names:
                 issues["P0.broken_link"].append((it["rel"], tgt))
 
@@ -256,6 +262,22 @@ def check(root, do_fix=False, quiet=False):
         t = idx.read_text(encoding="utf-8", errors="replace")
         if it["stem"] not in t and it["head"].get("title", "###") not in t:
             issues["P1.index_unlisted"].append((it["rel"], "未出现在 _分类索引.md"))
+
+    # --- 入口文件的双链：总目录与分类索引是唯一入口，断在这里最致命
+    # （表格里的 wiki 链接会写成 [[目标\|显示名]]，转义的回车符要先剥掉）
+    for p in sorted(root.rglob("*.md")):
+        rel = p.relative_to(root)
+        if rel.parts[0] == "tools":
+            continue
+        name = p.name
+        if not (name.startswith("_") or name.startswith("00_")
+                or name.endswith("_分类索引.md")):
+            continue
+        text = strip_code(p.read_text(encoding="utf-8", errors="replace"))
+        for m in LINK.findall(text):
+            tgt = m.split("|")[0].split("#")[0].strip().rstrip("\\")
+            if tgt and tgt not in names:
+                issues["P0.broken_link"].append((rel.as_posix(), tgt))
 
     # --- 孤儿卡
     referenced = set()
