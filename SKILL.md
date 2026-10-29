@@ -1,10 +1,10 @@
 ---
-name: kb-factory
+name: knowledge-base-factory
 description: 搭建、扩充、质检、交付一套结构化知识库（素材库 / 内容库）。当用户要「建知识库」「整理成体系」「批量生产可检索内容」「给 APP 或社群做内容库」「要选题地图和写作标准」，或要检查现有 Markdown 库的断链、字段、索引问题时使用。生成骨架约 3 秒；内容按标准逐篇生产，不灌水。触发词：搭知识库、建素材库、知识库体系、内容库交付、批量生产内容、选题地图、Obsidian 知识库、去 AI 味。
 agent_created: true
 ---
 
-# kb-factory
+# knowledge-base-factory
 
 把「一堆笔记」变成「一套可检索、可交付、经得起验收的知识库」。
 
@@ -181,7 +181,7 @@ python tools/export.py .           # 出 _篇目清单.csv 并打包 zip
 ## 八、文件
 
 ```
-kb-factory/
+knowledge-base-factory/
 ├── SKILL.md
 ├── README.md
 ├── scripts/

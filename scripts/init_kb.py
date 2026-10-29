@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""kb-factory / init_kb.py — 3 秒拉起一套可交付的知识库骨架。
+"""knowledge-base-factory / init_kb.py — 3 秒拉起一套可交付的知识库骨架。
 
 生成的东西:
     目录结构 / 00_总目录 / 每个分类的 _分类索引 /
@@ -199,7 +199,7 @@ python tools/export.py .         # 生成 _篇目清单.csv 并打包 zip
 
 ## 十、变更记录
 
-- **v1（<<DATE>>）**：由 kb-factory 生成骨架，<<CAT_COUNT>> 个分类，0 篇内容。
+- **v1（<<DATE>>）**：由 knowledge-base-factory 生成骨架，<<CAT_COUNT>> 个分类，0 篇内容。
 """
 
 T_INDEX = """---
@@ -577,7 +577,7 @@ T_README = """# <<KB_NAME>>
 
 <<KB_DESC>>
 
-一套按"问题"组织、可检索、可交付的知识库。骨架由 [kb-factory](https://github.com/<<GH_USER>>/kb-factory) 生成。
+一套按"问题"组织、可检索、可交付的知识库。骨架由 [knowledge-base-factory](https://github.com/<<GH_USER>>/knowledge-base-factory) 生成。
 
 ## 从哪开始
 

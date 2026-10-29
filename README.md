@@ -1,4 +1,4 @@
-# kb-factory
+# knowledge-base-factory
 
 **把一堆笔记变成一套可交付的知识库。骨架 3 秒，内容按标准逐篇生产。**
 
@@ -40,8 +40,8 @@ A production line for structured knowledge bases: scaffold in 3 seconds, content
 ## 快速开始
 
 ```bash
-git clone https://github.com/<you>/kb-factory.git
-cd kb-factory
+git clone https://github.com/<you>/knowledge-base-factory.git
+cd knowledge-base-factory
 
 # 生成骨架（约 0.04 秒）
 python scripts/init_kb.py ../我的知识库 --name "我的知识库" --preset opc
